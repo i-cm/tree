@@ -774,3 +774,16 @@ button > * {
 	background-image: none !important;
 	--background: transparent !important;
 }
+
+added {
+  color: #00ff00;
+}
+changed {
+  color: #ffff00;
+}
+reworked {
+  color: #ff8800;
+}
+removed {
+  color: #ff0000;
+}
