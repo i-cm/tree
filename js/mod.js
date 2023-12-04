@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "The Modding Tree",
+	name: "The Multiplyer Tree",
 	id: "hiandandp",
 	author: "",
 	pointsName: "cash",
@@ -12,14 +12,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "",
+	num: "0.11",
+	name: "The stat update",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v0.11</h3><br>
+		<added>+ Added Experience<br>
+		+ Added Stats</added>`
 
 let winText = ``
 
@@ -46,8 +46,10 @@ function getPointGen() {
 	gain = gain.mul(player.m.points.add(1))
 	gain = gain.mul(player.x.points.add(1))
 	gain = gain.pow(player.e.points.add(1))
-	
-	
+	if (hasMilestone("xp", 1)) gain = gain.mul(getBuyableAmount("xp", 11))
+	gain = gain.mul(player.s.points.add(1))
+	gain = gain.mul(player.s.points.add(1).logBase(10).add(1))
+	if (hasMilestone("xp", 5)) gain = gain.pow(3)
 	return gain
 }
 
